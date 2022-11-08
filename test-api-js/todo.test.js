@@ -12,38 +12,21 @@ describe("todo test suite", () => {
 
   // Initial length of the todo list is 3 // 3 default tasks
   test("get_todos", () => {
-    expect(todo_service.get_todos().todo.length).toEqual(3);
+    expect(todo_service.get_todos().todo.length).toEqual(100);
   });
 
   test("add_todo", () => {
-    expect(
-      todo_service.add_todo({
-        title: "sample title",
-        describtion: "sample description",
-        done: false,
-      })
-    ).toEqual([
-      {
-        title: "T1",
-        description: "D1",
-        done: false,
-      },
-      {
-        title: "T1",
-        description: "D1",
-        done: false,
-      },
-      {
-        title: "T1",
-        description: "D1",
-        done: false,
-      },
-      {
-        title: "sample title",
-        describtion: "sample description",
-        done: false,
-      },
-    ]);
+    todo={
+      "title": "First title",
+      "describtion": "Main description",
+      "done": false,
+      
+    }
+    todo_service.add_todo(todo);
+
+    expect(todo_service.get_todos.todo.length).toEqual(4);
+      
+    
   });
 
   test("delete_todo", () => {
@@ -60,8 +43,8 @@ describe("todo test suite", () => {
         done: false,
       },
       {
-        title: "sample title",
-        describtion: "sample description",
+        title: "First title",
+        describtion: "Main description",
         done: false,
       },
     ]);
@@ -70,14 +53,14 @@ describe("todo test suite", () => {
   test("update_todo", () => {
     expect(
       todo_service.update_todo(0, {
-        title: "sample title 2",
-        describtion: "sample description 2",
+        title: "First title 2",
+        describtion: "Main description 2",
         done: false,
       })
     ).toEqual([
       {
-        title: "sample title 2",
-        describtion: "sample description 2",
+        title: "First title 2",
+        describtion: "Main description 2",
         done: false,
       },
       {
@@ -91,8 +74,8 @@ describe("todo test suite", () => {
         done: false,
       },
       {
-        title: "sample title",
-        describtion: "sample description",
+        title: "First title",
+        describtion: "Main description",
         done: false,
       },
     ]);
